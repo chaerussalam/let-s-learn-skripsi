@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>15 Educational Questions Quiz</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    color: #222;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 24px;
+  }
+
+  #app {
+    background: #fff;
+    border-radius: 16px;
+    max-width: 720px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    padding: 36px 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 28px;
+    background: linear-gradient(90deg, #11998e, #38ef7d);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  .home-screen, .quiz-screen {
+    width: 100%;
+  }
+  @media  screen and (max-width: 768px) {
+    .about-box {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .about-box .box h1 {
+        font-size: 30px;
+        line-height: 1.5;
+    }
+    .about-box .box p {
+        font-size: 12px;
+    } 
+  }
+  .start-btn {
+    width: 30%;
+    margin-top: 30px;
+    padding: 14px 40px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    box-shadow: 0 8px 28px rgba(118,75,162,0.7);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    display: block;
+  }
+
+  .btn-home {
+    width: 30%;
+    margin-top: 30px;
+    padding: 14px 40px;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    box-shadow: 0 8px 28px rgba(118,75,162,0.7);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    display: block;
+  }
+
+  .start-btn:hover {
+    background: #5a63d8;
+    box-shadow: 0 12px 35px rgba(90,99,216,0.9);
+  }
+  .btn-home:hover {
+    background: #5a63d8;
+    box-shadow: 0 12px 35px rgba(90,99,216,0.9);
+  }
+  .question-text {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #333;
+    min-height: 70px;
+  }
+  .options {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .option-label {
+    background: #e3f6f5;
+    padding: 14px 20px;
+    margin-bottom: 16px;
+    border-radius: 14px;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #045d56;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 3px 8px rgba(4,93,86,0.3);
+    transition: background-color 0.3s ease;
+  }
+  .option-label:hover {
+    background: #c9edea;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  input[type="radio"]:checked + .option-label {
+    background: #0aafa0;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 0 15px 3px #13d8d6;
+  }
+  .feedback {
+    margin-top: 20px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    min-height: 1.5em;
+    text-align: center;
+  }
+  .correct {
+    color: #2e7d32;
+  }
+  .incorrect {
+    color: #c62828;
+  }
+  .progress {
+    margin-top: 20px;
+    width: 100%;
+    background: #c4e3df;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 16px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #25c481, #1aab8e);
+    width: 0%;
+    transition: width 0.4s ease-in-out;
+  }
+  @media (max-width: 500px) {
+    #app {
+      padding: 24px 30px;
+    }
+    h1 {
+      font-size: 2.4rem;
+    }
+    .question-text {
+      font-size: 1.3rem;
+      min-height: 60px;
+    }
+    .option-label {
+      font-size: 1rem;
+      padding: 12px 16px;
+    }
+  }
+</style>
+</head>
+<body>
+  <div id="app" role="main" aria-label="Educational quiz with 15 questions">
+    <!-- Home screen with start button -->
+    <section class="home-screen" aria-label="Start quiz screen">
+      <h1>Computer Network Quiz</h1>
+      <p style="font-size:1.2rem; font-weight:500; color:#333; text-align:center; max-width:480px; margin: auto;">    
+        Test your knowledge with 15 computer networking questions! Click the Start button below to begin.
+      </p>
+      <button class="start-btn" id="start-btn" aria-label="Start the quiz">Start Quiz</button>
+    </section>
+
+    <!-- Quiz screen with question, options, feedback, and home button -->
+    <section class="quiz-screen hidden" aria-live="polite" aria-label="Quiz questions and answers">
+      <div class="question-text" id="question-text"></div>
+      <form class="options" id="options-container" role="radiogroup" aria-labelledby="question-text"></form>
+      <div class="feedback" id="feedback"></div>
+      <div class="progress" aria-hidden="true">
+        <div class="progress-bar" id="progress-bar"></div>
+      </div>
+      <button class="btn-home" onclick=window.location.href='index.html';>Home</button>
+    </section>
+  </div>
+
+<script>
+  const questions = [
+    { question: "Apa itu jaringan komputer?", options: ["Kumpulan perangkat yang saling terhubung untuk berbagi data", "Kumpulan perangkat keras yang tidak terhubung", "Hanya komputer yang terhubung ke internet", "Hanya perangkat lunak yang digunakan untuk komunikasi"], answer: 0 },
+    { question: "Apa fungsi utama dari router dalam jaringan?", options: ["Menghubungkan perangkat ke internet", "Menyimpan data", "Mengirim data", "mencetak dokumen"], answer: 0 },
+    { question: "Perangkat yang digunakan untuk menghubungkan dua atau lebih jaringan disebut?", options: ["Modem", "Hub", "Router", "Switch"], answer: 2 },
+    { question: "Fungsi utama dari jaringan komputer adalah?", options: ["Menghubungkan printer", "Berbagi data dan sumber daya", "Menyimpan virus", "Menghubungkan printer"], answer: 1 },
+    { question: "Perangkat yang digunakan untuk menghubungkan komputer dalam jaringan adalah?", options: ["Monitor", "Keyboard", "Switch", "Flashdisk"], answer: 2 },
+    { question: "Agar komputer bisa mengakses internet, dibutuhkan perangkat...", options: ["Speaker", "Mouse", "Modem", "Scanner"], answer: 2 },
+    { question: "Alat yang digunakan untuk menghubungkan komputer dengan kabel jaringan adalah...", options: ["RJ-45", "HDMI", "USB", "VGA"], answer: 0 },
+    { question: "Server adalah komputer yang berfungsi untuk...", options: ["Mencetak dokumen", "Menyimpan data dan melayani klien", "Menghapus data", "Memperbesar layar"], answer: 1 },
+    { question: "Contoh penggunaan jaringan komputer adalah...", options: ["Mengisi air galon", "Bermain basket", "Menonton youtube di beberapa perangkat", "Menyapu lantai"], answer: 2 },
+    { question: "Salah satu bahaya dari jaringan komputer adalah...", options: ["Keyboar rusak", "Serangan virus dan hacker", "Komputer meledak", "Tidak bisa menyala"], answer: 1 },
+    { question: "Jaringan komputer di kota besar disebut...", options: ["Worl Area Network", "Wide Area Network", "Local Area Network", "Metropolitan Area Network"], answer: 2 },
+    { question: "Komputer yang memberikan layanan dalam jaringan disebut?", options: ["Server", "Router", "NIC", "Switch"], answer: 0 },
+    { question: "Perangkat lunak yang mengamankan jaringan dari serangan adalah...", options: ["Phising", "Botnet", "Malware", "Firewall"], answer: 3 },
+    { question: "Protocol apa sajakah yang terdapat pada layer network pad OSI?", options: ["IP", "HTTP", "FTP", "UDP"], answer: 0 },
+    { question: "Cara untuk menghubungkan sebuah komputer dengan komputer lainnya sehingga membentuk jarinngan disebut...", options: ["Perangkat keras jaringan", "Perangkat lunak jaringan", "Topologi jaringan komputer", "Komponen perangkat keras jaringan"], answer: 2 }
+  ];
+
+  // DOM elements
+  const homeScreen = document.querySelector(".home-screen");
+  const quizScreen = document.querySelector(".quiz-screen");
+  const startBtn = document.getElementById("start-btn");
+  const homeBtn = document.getElementById("home-btn");
+  const questionTextEl = document.getElementById("question-text");
+  const optionsContainer = document.getElementById("options-container");
+  const feedbackEl = document.getElementById("feedback");
+  const progressBar = document.getElementById("progress-bar");
+
+  let currentQuestionIndex = 0;
+
+  // Start quiz
+  startBtn.addEventListener("click", () => {
+    currentQuestionIndex = 0;
+    homeScreen.classList.add("hidden");
+    quizScreen.classList.remove("hidden");
+    feedbackEl.textContent = "";
+    loadQuestion();
+    updateProgressBar();
+  });
+
+  // Load question and options
+  function loadQuestion() {
+    const currentQ = questions[currentQuestionIndex];
+    questionTextEl.textContent = currentQ.question;
+    feedbackEl.textContent = "";
+    optionsContainer.innerHTML = "";
+    currentQ.options.forEach((opt, idx) => {
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "option";
+      radio.id = `option-${idx}`;
+      radio.value = idx;
+
+      const label = document.createElement("label");
+      label.htmlFor = `option-${idx}`;
+      label.className = "option-label";
+      label.textContent = opt;
+
+      radio.addEventListener("change", () => {
+        checkAnswer(parseInt(radio.value));
+      });
+
+      optionsContainer.appendChild(radio);
+      optionsContainer.appendChild(label);
+    });
+  }
+
+  // Check selected answer and show feedback
+  function checkAnswer(selected) {
+    const correctAnswer = questions[currentQuestionIndex].answer;
+    if (selected === correctAnswer) {
+      feedbackEl.textContent = "✔ Correct!";
+      feedbackEl.className = "feedback correct";
+      // Delay before moving to next question or finish
+      setTimeout(() => {
+        currentQuestionIndex++;
+        if (currentQuestionIndex >= questions.length) {
+          showCompletion();
+        } else {
+          loadQuestion();
+          updateProgressBar();
+          feedbackEl.textContent = "";
+        }
+      }, 1300);
+    } else {
+      feedbackEl.textContent = "✘ Incorrect, try again.";
+      feedbackEl.className = "feedback incorrect";
+    }
+  }
+
+  // Show completion message
+  function showCompletion() {
+    questionTextEl.textContent = "🎉 Congratulations! You have completed the quiz.";
+    optionsContainer.innerHTML = "";
+    feedbackEl.textContent = "";
+    progressBar.style.width = "100%";
+  }
+
+  // Update progress bar width
+  function updateProgressBar() {
+    const progressPercent = ((currentQuestionIndex) / questions.length) * 100;
+    progressBar.style.width = progressPercent + "%";
+  }
+
+  // Return to home page
+  homeBtn.addEventListener("click", () => {
+    quizScreen.classList.add("hidden");
+    homeScreen.classList.remove("hidden");
+  });
+</script>
+</body>
+</html>

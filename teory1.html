@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Material Page with Back Button</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+    :root {
+      --primary-color: #6200ee;
+      --primary-color-dark: #3700b3;
+      --on-primary-color: white;
+      --background-color: #f5f5f5;
+      --surface-color: white;
+      --text-primary: #000000;
+      --text-secondary: #000000;
+      --shadow-color: rgba(0, 0, 0, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-primary);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .app-bar {
+      background-color: var(--primary-color);
+      color: var(--on-primary-color);
+      display: flex;
+      align-items: center;
+      height: 56px;
+      padding: 0 16px;
+      box-shadow: 0 2px 4px var(--shadow-color);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .button {
+      border: none;
+      background: none;
+      color: var(--on-primary-color);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-weight: 500;
+      font-size: 16px;
+      outline: none;
+      transition: background-color 0.2s;
+      padding: 6px 12px;
+      border-radius: 4px;
+    }
+
+    .button:hover,
+    .button:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    main {
+      padding: 24px;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-weight: 400;
+      font-size: 2rem;
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      .app-bar {
+        height: 48px;
+        padding: 0 12px;
+      }
+
+      .back-button {
+        font-size: 14px;
+        padding: 6px 8px;
+      }
+
+      main {
+        padding: 16px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="app-bar" role="banner">
+    <button onclick="window.location.href='index.html';">Home</button>
+  </header>
+  <main role="main">
+     <h1>Jaringan Komputer</h1>
+    <p>
+      Jaringan komputer adalah kumpulan dua atau lebih komputer yang saling terhubung satu sama lain untuk berbagi data atau sumber daya (seperti printer, internet, dll.).<br/>🔍 Contoh sederhana:<br/>-Komputer di ruang laboratorium sekolah yang saling terhubung.
+      <br/>-Mengirim file dari satu komputer ke komputer lain tanpa flashdisk.
+    </p>
+    <p>Manfaat Jaringan Komputer<br/>✅ Berbagi file dengan cepat<br/>✅ Berbagi perangkat keras (printer, scanner)<br/>✅ Mengakses internet bersama<br/>✅ Komunikasi jadi lebih mudah (email, chat, dll)</p>
+    <p>Jenis-jenis jaringan berdasarkan wilayah.                                         |
+      <br/>1. LAN (Local Area Network) yaitu Jaringan di area kecil seperti sekolah atau rumah.<br/>2. MAN (Metropolitan Area Network) yaitu jaringan dalam satu kota.   <br/>3. WAN (Wide Area Network) yaitu jaringan antar kota atau negara, seperti internet.
+    </p>
+    <a href="https://asblr.com/5knm4I">Klik untuk melihat jenis-jenis Jaringan Komputer 3D</a>
+  
+    <p>
+      Perangkat dalam Jaringan Komputer
+      <br/>Beberapa alat yang digunakan dalam jaringan komputer:
+      <br/>1. Komputer	Perangkat utama untuk saling terhubung
+      <br/>2. Switch / Hub	Menghubungkan banyak komputer dalam jaringan
+      <br/>3. Router	Menghubungkan jaringan lokal ke internet
+      <br/>4. Kabel LAN	Mengalirkan data antar perangkat
+      <br/>5. Wi-Fi Router	Menghubungkan perangkat ke jaringan tanpa kabel,dll.
+    </p>
+    <a href="https://asblr.com/rIqK5o">Klik untuk melihat Teknologi Jaringan Komputer 3D</a>
+    <p>
+      Jenis Jaringan Berdasarkan Media Penghubung
+      <br/>*Jaringan Kabel (Wired): menggunakan kabel LAN
+      <br/>*Jaringan Nirkabel (Wireless): menggunakan Wi-Fi tanpa kabe
+    </p>
+    <p>
+      Topologi jaringan adalah cara atau pola komputer terhubung satu sama lain.
+      <br/>1. Topologi Bus	Semua komputer terhubung pada satu kabel utama.
+      <br/>2. Topologi Star	Semua komputer terhubung ke satu pusat (hub/switch).
+      <br/>3. Topologi Ring	Komputer membentuk lingkaran, data mengalir searah.
+      <br/>💡 Paling umum digunakan di sekolah: Topologi Star
+    </p>
+    <p>
+      Contoh Penggunaan Jaringan Komputer di Sekolah
+    <br/>>Guru dan siswa berbagi file tugas.
+    <br/>>Komputer laboratorium terhubung ke printer bersama.
+    <br/>>Akses internet dari semua komputer di kelas.
+    </p>
+    <p>
+      Etika Menggunakan Jaringan Komputer
+    <br/>🧠 Hal yang perlu diingat:
+    <br/>*Jangan membagikan data pribadi tanpa izin.
+    <br/>*Jangan membuka situs yang tidak pantas.
+    <br/>*Gunakan jaringan internet dengan bijak.
+    </p>
+  </main>
+
+  <script>
+    function goBack() {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        // fallback if no history - can customize fallback here, e.g. go to homepage
+        alert('No page to go back to.');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Team Profiles</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem 4rem;
+  }
+  .btn-home {
+    width: 30%;
+    margin-top: 30px;
+    padding: 14px 50px 14px ;
+    font-size: 1.3rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 28px;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    box-shadow: 0 8px 28px rgba(118,75,162,0.7);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    display: block;
+  }
+  .btn-home:hover {
+    background: #5a63d8;
+    box-shadow: 0 12px 35px rgba(90,99,216,0.9);
+  }
+  h1 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
+  }
+  .profiles {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    width: 100%;
+  }
+  .card {
+    background: rgba(255 255 255 / 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 1rem;
+    width: 280px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 1.25rem 2rem;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .profile-pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #fff;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+    margin-bottom: 1.25rem;
+    transition: box-shadow 0.3s ease;
+  }
+  .card:hover .profile-pic {
+    box-shadow: 0 15px 25px rgba(255, 255, 255, 0.8);
+  }
+  .name {
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin: 0 0 0.4rem;
+    color: #ffecb3;
+    text-align: center;
+  }
+  .role {
+    font-weight: 300;
+    font-size: 1rem;
+    color: #ddd;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  .bio {
+    font-size: 0.9rem;
+    color: #eee;
+    text-align: center;
+    line-height: 1.4;
+  }
+  @media (max-width: 920px) {
+    .profiles {
+      justify-content: center;
+    }
+    .card {
+      width: 90vw;
+      max-width: 320px;
+    }
+  }
+</style>
+</head>
+<body>
+<h1>Profile</h1>
+<P>Profil Mahasiswa dan Dosen Pembimbing</P>
+<div class="profiles">
+  <div class="card" tabindex="0" aria-label="Profile of Chaerus Salam, Mahasiswa">
+    <img class="profile-pic" src="./assets/images/Chaerus Salam.png" alt="Alice Johnson photo" />
+    <h2 class="name">Chaerus Salam</h2>
+    <p class="role">Mahasiswa</p>
+    <p class="bio">Mahasiswa Prodi Pend. Teknologi Informasi.</p>
+  </div>
+  <div class="card" tabindex="0" aria-label="Dr.Ir. B. Herawan Hayadi, S.Kom, M.Kom, Frontend Developer">
+    <img class="profile-pic" src="./assets/images/dospem1.jpeg" alt="Michael Lee photo" />
+    <h2 class="name">Dr. Ir. B. Herawan, S.Kom, M.Kom</h2>
+    <p class="role">Dosen Pembimbing 1</p>
+    <p class="bio">Kepala Biro Pengembangan Pendidikan.</p>
+  </div>
+  <div class="card" tabindex="0" aria-label="Profile of Sarah Kim, Project Manager">
+    <img class="profile-pic" src="./assets/images/dospem2.jpg" alt="Sarah Kim photo" />
+    <h2 class="name">Beni Junedi, M.Pd, S.Pd.I</h2>
+    <p class="role">Dosen Pembimbing 2</p>
+    <p class="bio">Wakil Dekan 1 Fakultas Keguruan dn Ilmu Pendidikan.</p>
+  </div>
+</div>
+<div><button class="btn-home" id="btn-home" onclick=window.location.href="index.html">Home</button></div>
+<script>
+  // Optional: Keyboard accessibility focus styling for cards
+  const cards = document.querySelectorAll('.card');
+  cards.forEach(card => {
+    card.addEventListener('focus', () => {
+      card.style.transform = 'translateY(-10px)';
+      card.style.boxShadow = '0 20px 40px rgba(0,0,0,0.4)';
+    });
+    card.addEventListener('blur', () => {
+      card.style.transform = '';
+      card.style.boxShadow = '0 8px 20px rgba(0,0,0,0.2)';
+    });
+  });
+</script>
+</body>
+</html>
